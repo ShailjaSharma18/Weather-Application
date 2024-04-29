@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <div class = "container">
+        <h1> Real-Time Weather Application </h1>
+    
+    <form method='POST'>
+        {% csrf_token%}
+        <input type "text" name = "city" placeholder = "Enter City Name">
+        <button type = "Submit">Search</button>
+    </form>
+    <div class = "weather">
+        <div class= "left">
+            <h2>{{city}} </h2>
+            <h2>{{temp}} &#176; C </h2>
+        </div>
+        <div class= "right">
+            <div class= "icon">
+                <p><img src="http://openweathermap.org/img/w/{{ icon }}.png" width="120px"></p>
+            </div>
+            <div class= "condition">
+                <h3> {{description}}</h3>
+                <h3> {{day}}</h3>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>
